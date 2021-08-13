@@ -16,7 +16,8 @@ $(function () {
     ////////////// Services Slider
     $(".services__slider").slick({
         arrows: false,
-        dots: true
+        dots: true,
+
     });
 
     // Services slider dots naming
@@ -78,21 +79,19 @@ $(function () {
 
 
     /////////////// Clients Slider
-    if ($(window).width() < 720) {
-        $(".clients__slider").slick({
-            arrows: false,
-            dots: true,
-            slidesToShow: 1,
-            slidesToScroll: 1
-        });
-    } else {
-        $(".clients__slider").slick({
-            arrows: false,
-            dots: true,
-            slidesToShow: 3,
-            slidesToScroll: 3
-        });
-    }
+    $(".clients__slider").slick({
+        arrows: false,
+        dots: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        responsive: [{
+            breakpoint: 720,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        }]
+    })
 
 
     //////////////////Nav Links Scroll (Header and Footer)
@@ -100,7 +99,7 @@ $(function () {
         e.preventDefault();
         var section = $(this).data("section");
         var sectionOffset = $(section).offset().top - 80;
-        $("html, body").animate({scrollTop:sectionOffset}, 700);
+        $("html, body").animate({ scrollTop: sectionOffset }, 700);
     });
 
 
@@ -143,7 +142,7 @@ $(function () {
         var windowBottom = $(window).scrollTop() + $(window).height();
         var windowFraction = $(window).height() / 2;
         var blogPoint = blogSection.offset().top + windowFraction;
-        if ( windowBottom > blogPoint) {
+        if (windowBottom > blogPoint) {
             blogSection.addClass("active");
         } else {
             blogSection.removeClass("active");
