@@ -1,18 +1,4 @@
 $(function () {
-    ////////////////////////// Elements////////////////////
-
-
-
-
-
-
-
-
-
-
-    ////////////////////////// Elements////////////////////
-
-
     ////////////// Services Slider
     $(".services__slider").slick({
         arrows: false,
